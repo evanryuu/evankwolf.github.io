@@ -21,7 +21,7 @@
 
 var ref = getCookie('ref')
 console.log('先发送一个 affiliate', ref);
-window.postMessage({origin: 'aff', ref}, '*')
+window.parent.postMessage({origin: 'aff', ref}, '*')
 
 // window.addEventListener('message', function (event) {
 //     console.log('affiliate iframe收到信息', event);
