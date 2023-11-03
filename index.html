@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) 
-    {
-        var c = ca[i].trim();
-        if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-    }
-    return "";
-}
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
 
-var ref = getCookie('ref')
-console.log('先发送一个 affiliate', ref);
-window.parent.postMessage({origin: 'aff', ref: ref}, '*')
-
-// window.addEventListener('message', function (event) {
-//     console.log('affiliate iframe收到信息', event);
-//     window.parent.postMessage(ref, "*")
-// })
+        var code = getCookie('code')
+        console.log('当前用户的code为', code);
+        window.parent.postMessage({ origin: 'aff', code: code }, '*')
     </script>
 </body>
+
 </html>
